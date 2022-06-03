@@ -17,6 +17,47 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// function steps(n) {}
+
+/* Варіант 1: (найкращий)
+ 1) пройтися в циклі "for" від 0 до n
+ 2) на кожній ітерації пройтись по врутрішньому циклі "for" від 0 до n
+ 3) якщо колонка більша ніж рядок то записувати " ", інакше - "#"
+    в результуючу строку для кожного рядка
+ 4) в кінці кожної зовнішньої ітерації вивести внутрішню строку
+*/
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let stair = '';
+
+    for (let column = 0; column < n; column++) {
+      stair += column > row ? ' ' : '#';
+    }
+
+    console.log(stair);
+  }
+
+  // for (let row = 0; row < n; row++) {
+  //   const stair = [];
+  //   for (let column = 0; column < n; column++) {
+  //     stair.push(column > row ? ' ' : '#');
+  //   }
+  //   console.log(stair.join(''));
+  // }
+}
+
+/* Варіант 2: (хороший / рекурсивний)
+*/
+// function steps(n, row = 0, stair = '') {
+//   if (n === row) return;
+//
+//   if (n === stair.length) {
+//     console.log(stair);
+//     return steps(n, row + 1);
+//   }
+//
+//   stair += stair.length <= row ? '#' : ' ';
+//   steps(n, row, stair);
+// }
 
 module.exports = steps;
