@@ -24,8 +24,8 @@
 // }
 
 /* Варіант 2 */
-// exponential runtime - O(2^N) - дуууже погано
-// можна зробити linear runtime O(n) за доп. мемоізації (кешування) результатів виклику ф-ії fib
+// exponential runtime complexity - O(2^N) - дуууже погано
+// можна зробити linear runtime complexity O(n) за доп. мемоізації (кешування) результатів виклику ф-ії fib
 function memoize(fn) {
   const cache = {};
 

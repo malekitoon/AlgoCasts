@@ -8,6 +8,24 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
-class Queue {}
+// class Queue {}
+
+/* Варіант 1: (найкращий)
+     (в чергах зазвичай юзають unshift/pop)
+*/
+
+class Queue {
+  constructor() {
+    this.data = [];
+  }
+
+  add(item) {
+    this.data.unshift(item);
+  };
+
+  remove(item) {
+    return this.data.pop();
+  }
+}
 
 module.exports = Queue;
