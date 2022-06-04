@@ -24,9 +24,25 @@
 // }
 
 /* Варіант 2 */
-function fib(n) {
+// exponential runtime - O(2^N) - дуууже погано
+// можна зробити linear runtime O(n) за доп. мемоізації (кешування) результатів виклику ф-ії fib
+function memoize(fn) {
+  const cache = {};
+
+  return function(...args) {
+    if (cache[args]) return cache[args];
+
+    const result = fn(...args);
+    cache[args] = result;
+    return result;
+  }
+}
+
+function slowFib(n) {
   if (n < 2) return n;
   return fib(n - 1) + fib(n - 2);
 }
+
+const fib = memoize(slowFib);
 
 module.exports = fib;
